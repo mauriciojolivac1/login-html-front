@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Iniciar sesión</title>
+    <!-- Base del API (opcional). Vacío = mismo origen que esta página. Ejemplo: https://api.miapp.com -->
+    <meta name="login-api-base" content="" />
+    <!-- Tras login OK, redirige (opcional). Ejemplo: ./dashboard.html -->
+    <meta name="login-success-redirect" content="" />
+    <!-- Si el backend exige CSRF, definir token aquí o inyectarlo desde el servidor -->
+    <meta name="csrf-token" content="" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <main class="login-container">
+      <h1>Iniciar sesión</h1>
+      <form id="loginForm" novalidate>
+        <div class="form-group">
+          <label for="usernameOrEmail">Correo o usuario</label>
+          <input
+            type="text"
+            id="usernameOrEmail"
+            name="username"
+            autocomplete="username"
+            required
+            maxlength="255"
+            aria-describedby="error-usernameOrEmail"
+          />
+          <span class="error-message" id="error-usernameOrEmail" role="alert"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="password">Contraseña</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            autocomplete="current-password"
+            required
+            maxlength="255"
+            aria-describedby="error-password"
+          />
+          <span class="error-message" id="error-password" role="alert"></span>
+        </div>
+
+        <button type="submit" id="loginBtn">Iniciar sesión</button>
+      </form>
+
+      <div id="alerts" aria-live="polite">
+        <div class="alert alert-error" id="alertError"></div>
+        <div class="alert alert-success" id="alertSuccess"></div>
+      </div>
+    </main>
+
+    <script type="module" src="js/main.js"></script>
+  </body>
+</html>
